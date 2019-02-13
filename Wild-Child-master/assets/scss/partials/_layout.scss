@@ -1,0 +1,58 @@
+/* Box Sizing
+--------------------------------------------- */
+
+html,
+input[type="search"] {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Wrap
+--------------------------------------------- */
+
+.wrap {
+    max-width: map-get( $breakpoints, 'desktop' );
+    margin: 0 auto;
+	padding-left:  ($grid-gap / 2);
+	padding-right: ($grid-gap / 2);
+	@include clearfix;
+}
+
+
+/* Sidebar Layouts
+--------------------------------------------- */
+
+@include media("<medium") {
+
+	.sidebar-primary {
+		display: none;
+	}
+}
+
+@include media(">=medium") {
+
+	.sidebar-content,
+	.content-sidebar {
+
+		.site-main {
+			float: left;
+			width: 768px / 1168px * 100%;
+		}
+
+		.sidebar-primary {
+			float: right;
+			width: 335px / 1168px * 100%;
+		}
+	}
+
+	.sidebar-content .site-main {
+		float: right;
+	}
+
+	.sidebar-content .sidebar-primary {
+		float: left;
+	}
+}
